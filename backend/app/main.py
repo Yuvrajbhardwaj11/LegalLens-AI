@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
 
 from app.core.config import settings
 from app.routers import documents, query, analysis
@@ -26,3 +28,11 @@ app.include_router(analysis.router, prefix="/api/analysis", tags=["analysis"])
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "legallens-ai-backend"}
+
+
+# Serve the built frontend (if present) so a single container can host both
+# the API and the UI — used for the combined Hugging Face Spaces deployment.
+# API routes above are matched first, so this only catches everything else.
+_frontend_dist = os.path.join(os.path.dirname(__file__), "..", "static")
+if os.path.isdir(_frontend_dist):
+    app.mount("/", StaticFiles(directory=_frontend_dist, html=True), name="frontend")

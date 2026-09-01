@@ -1,3 +1,13 @@
+---
+title: LegalLens AI
+emoji: ⚖️
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # LegalLens AI — AI-Powered Contract Intelligence Platform
 
 > Upload a contract. Ask it anything. Get answers grounded in the exact clause and page they came from.

@@ -9,25 +9,19 @@ pypdf==4.2.0
 python-docx==1.1.2
 pdf2image==1.17.0
 pytesseract==0.3.10
+Pillow==10.4.0
 
-# RAG / AI
-langchain==0.2.6
-langchain-community==0.2.6
-sentence-transformers==3.0.1
+# RAG core (lightweight — no PyTorch, ONNX-based embeddings)
+fastembed==0.3.4
 faiss-cpu==1.8.0
-chromadb==0.5.3
-ollama==0.2.1
-openai==1.35.3
-
-# Database
-sqlalchemy==2.0.31
-psycopg2-binary==2.9.9
-alembic==1.13.2
-
-# Utilities
-python-dotenv==1.0.1
-tenacity==8.4.1
+numpy==1.26.4
+requests==2.32.3
 
 # Testing
 pytest==8.2.2
 httpx==0.27.0
+
+# --- Not yet wired into the code, add back when you build these features ---
+# sqlalchemy==2.0.31       # for persisting document/user metadata in Postgres
+# psycopg2-binary==2.9.9
+# alembic==1.13.2

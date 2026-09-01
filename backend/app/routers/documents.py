@@ -6,7 +6,7 @@ from app.services.embedding_service import embed_and_index
 
 router = APIRouter()
 
-SUPPORTED_TYPES = {".pdf", ".docx", ".png", ".jpg", ".jpeg"}
+SUPPORTED_TYPES = {".pdf", ".docx", ".png", ".jpg", ".jpeg", ".txt"}
 
 
 @router.post("/upload")
